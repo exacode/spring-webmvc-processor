@@ -3,9 +3,7 @@
 <#if controller.hasOptionalParameterMappings()>
 import org.springframework.web.processor.routing.UriBuilder;
 </#if>
-<#if controller.hasNoParameterMappings()>
 import org.springframework.web.processor.routing.UriBuilder.SimpleUriBuilder;
-</#if>
 
 public class ${controller.type.className} {
 	

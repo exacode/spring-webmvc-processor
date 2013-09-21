@@ -6,7 +6,7 @@ public class SimpleTest extends BaseSpringTest {
 
 	@Test
 	public void test() {
-		MappedController_.getUsers().mvc().redirect();
+		// TODO
 	}
 
 }
