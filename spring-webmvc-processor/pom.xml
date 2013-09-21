@@ -1,0 +1,62 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>spring-webmvc-processor</artifactId>
+
+	<name>Spring Data MongoDB - Metamodel processor</name>
+	<description>Spring Data meta model processor for MongoDB documents</description>
+
+	<parent>
+		<groupId>org.springframework.web</groupId>
+		<artifactId>spring-webmvc-processor-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<properties>
+		<!-- Dependency versions -->
+		<version.freemarker>2.3.19</version.freemarker>
+		<version.log4j-over-slf4j>1.7.5</version.log4j-over-slf4j>
+	</properties>
+
+	<dependencies>
+		<!-- Spring web mvc dependency -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${version.spring}</version>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>spring-webmvc-processor-api</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<!-- Template engine -->
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>${version.freemarker}</version>
+		</dependency>
+
+		<!-- Log4j is required by freemarker (see: freemarker.log.Log4JLoggerFactory) -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>log4j-over-slf4j</artifactId>
+			<version>${version.log4j-over-slf4j}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<compilerArgument>-proc:none</compilerArgument>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
