@@ -7,6 +7,8 @@ public class Parameter {
 
 	private final String bindingName;
 
+	private final String pathName;
+
 	private final boolean required;
 
 	private final String defaultValue;
@@ -16,8 +18,10 @@ public class Parameter {
 	}
 
 	private Parameter(String methodParameterName, Type type,
-			String bindingName, boolean required, String defaultValue) {
+			String bindingName, String pathName, boolean required,
+			String defaultValue) {
 		super();
+		this.pathName = pathName;
 		this.methodParameterName = methodParameterName;
 		this.type = type;
 		this.bindingName = bindingName;
@@ -41,6 +45,10 @@ public class Parameter {
 		return bindingName;
 	}
 
+	public String getPathName() {
+		return pathName;
+	}
+
 	public Type getType() {
 		return type;
 	}
@@ -60,6 +68,8 @@ public class Parameter {
 
 		private String bindingName;
 
+		private String pathName;
+
 		private boolean required = true;
 
 		private String defaultValue;
@@ -67,6 +77,11 @@ public class Parameter {
 		public Builder(String methodParameterName, Type type) {
 			this.methodParameterName = methodParameterName;
 			this.type = type;
+		}
+
+		public Builder setPathName(String pathName) {
+			this.pathName = pathName;
+			return this;
 		}
 
 		public Builder setBindingName(String bindingName) {
@@ -86,7 +101,7 @@ public class Parameter {
 
 		public Parameter build() {
 			return new Parameter(methodParameterName, type, bindingName,
-					required, defaultValue);
+					pathName, required, defaultValue);
 		}
 	}
 }

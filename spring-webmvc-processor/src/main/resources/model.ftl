@@ -23,7 +23,11 @@ public class ${controller.type.className} {
 		uriBuilder.addRequestParameter("${param.bindingName}", ${param.methodParameterName});
 		</#list>
 		<#list method.matrixVariables as param>
+		<#if param.pathName??>
+		uriBuilder.addMatrixVariable("${param.pathName}", "${param.bindingName}", ${param.methodParameterName});
+		<#else>
 		uriBuilder.addMatrixVariable("${param.bindingName}", ${param.methodParameterName});
+		</#if>
 		</#list>
 		return uriBuilder;
 	}
@@ -38,8 +42,12 @@ public class ${controller.type.className} {
 		uriBuilder.addRequestParameter("${param.bindingName}", ${param.methodParameterName});
 		</#list>
 		<#list method.matrixVariables as param>
+		<#if param.pathName??>
+		uriBuilder.addMatrixVariable("${param.pathName}", "${param.bindingName}", ${param.methodParameterName});
+		<#else>
 		uriBuilder.addMatrixVariable("${param.bindingName}", ${param.methodParameterName});
-		</#list>
+		</#if>
+		</#list> 
 		return uriBuilder;
 	}
 	
@@ -68,7 +76,11 @@ public class ${controller.type.className} {
 		</#list>
 		<#list optParams.matrixVariables as param>
 		public ${optParams.className} ${param.methodParameterName}(${param.declaration}) {
-			this.addMatrixVariable("${param.bindingName}", ${param.methodParameterName});
+			<#if param.pathName??>
+			this.addMatrixVariable.addMatrixVariable("${param.pathName}", "${param.bindingName}", ${param.methodParameterName});
+			<#else>
+			this.addMatrixVariable.addMatrixVariable("${param.bindingName}", ${param.methodParameterName});
+			</#if>
 			return this;
 		}
 		</#list> 

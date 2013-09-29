@@ -70,8 +70,14 @@ public class Type {
 			canonicalNameWithGenerics = canonicalName;
 		} else {
 			StringBuilder builder = new StringBuilder(canonicalName);
+			boolean first = true;
 			builder.append("<");
 			for (String generic : generics) {
+				if (first) {
+					first = false;
+				} else {
+					builder.append(", ");
+				}
 				builder.append(generic);
 			}
 			builder.append(">");

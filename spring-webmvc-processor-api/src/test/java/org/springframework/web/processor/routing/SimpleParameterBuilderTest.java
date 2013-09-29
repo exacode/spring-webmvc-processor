@@ -28,8 +28,7 @@ public class SimpleParameterBuilderTest {
 		String uri = "/account/john-doe";
 		String server = "http://localhost:8080";
 		String servlet = "/app";
-		RequestMappingProcessorConfiguration.SERVER_URL = server;
-		RequestMappingProcessorConfiguration.SERVLET_PATH = servlet;
+		RequestMappingProcessorConfiguration.init(server, servlet);
 
 		// when
 		SimpleUriBuilder builder = new SimpleUriBuilder(uri);

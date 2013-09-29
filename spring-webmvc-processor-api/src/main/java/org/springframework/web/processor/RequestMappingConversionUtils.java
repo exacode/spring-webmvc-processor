@@ -13,7 +13,8 @@ import org.springframework.util.MultiValueMap;
 
 public final class RequestMappingConversionUtils {
 	public static String convert(Object value) {
-		ConversionService conversionService = RequestMappingProcessorConfiguration.CONVERSION_SERVICE;
+		ConversionService conversionService = RequestMappingProcessorConfiguration
+				.getConversionService();
 		if (conversionService != null
 				&& conversionService.canConvert(value.getClass(), String.class)) {
 			return conversionService.convert(value, String.class);

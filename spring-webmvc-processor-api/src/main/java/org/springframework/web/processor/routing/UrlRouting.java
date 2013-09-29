@@ -12,7 +12,7 @@ public class UrlRouting {
 		}
 
 		public String server() {
-			return RequestMappingProcessorConfiguration.SERVLET_PATH + uri;
+			return RequestMappingProcessorConfiguration.getServletPath() + uri;
 		}
 
 		public String servlet() {

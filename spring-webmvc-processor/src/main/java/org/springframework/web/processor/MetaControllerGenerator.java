@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ValueConstants;
 import org.springframework.web.processor.model.MetaController;
 import org.springframework.web.processor.model.MetaControllerMethod;
 import org.springframework.web.processor.model.Parameter;
@@ -125,20 +126,24 @@ class MetaControllerGenerator {
 	private Parameter analyzePathVariable(ExecutableElement method,
 			VariableElement param) {
 		PathVariable pathVariable = param.getAnnotation(PathVariable.class);
-		Type type = Type.create(aptUtils, param.asType());
 		String paramName = param.getSimpleName().toString();
+		String value = (pathVariable.value().isEmpty()) ? paramName
+				: pathVariable.value();
+		Type type = Type.create(aptUtils, param.asType());
 		Parameter metaParam = Parameter.builder(paramName, type)
-				.setBindingName(pathVariable.value()).build();
+				.setBindingName(value).build();
 		return metaParam;
 	}
 
 	private Parameter analyzeRequestParam(ExecutableElement method,
 			VariableElement param) {
 		RequestParam requestParam = param.getAnnotation(RequestParam.class);
-		Type type = Type.create(aptUtils, param.asType());
 		String paramName = param.getSimpleName().toString();
+		String value = (requestParam.value().isEmpty()) ? paramName
+				: requestParam.value();
+		Type type = Type.create(aptUtils, param.asType());
 		Parameter metaParam = Parameter.builder(paramName, type)
-				.setBindingName(requestParam.value())
+				.setBindingName(value)
 				.setDefaultValue(requestParam.defaultValue())
 				.setRequired(requestParam.required()).build();
 		return metaParam;
@@ -148,10 +153,14 @@ class MetaControllerGenerator {
 			VariableElement param) {
 		MatrixVariable matixVariable = param
 				.getAnnotation(MatrixVariable.class);
-		Type type = Type.create(aptUtils, param.asType());
 		String paramName = param.getSimpleName().toString();
+		String pathVar = (ValueConstants.DEFAULT_NONE.equals(matixVariable
+				.pathVar())) ? null : matixVariable.pathVar();
+		String value = (matixVariable.value().isEmpty()) ? paramName.toString()
+				: matixVariable.value();
+		Type type = Type.create(aptUtils, param.asType());
 		Parameter metaParam = Parameter.builder(paramName, type)
-				.setBindingName(matixVariable.value())
+				.setBindingName(value).setPathName(pathVar)
 				.setDefaultValue(matixVariable.defaultValue())
 				.setRequired(matixVariable.required()).build();
 		return metaParam;

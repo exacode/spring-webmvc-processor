@@ -1,4 +1,4 @@
-package org.springframework.web.processor.example;
+package org.springframework.web.processor.example.config;
 
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;

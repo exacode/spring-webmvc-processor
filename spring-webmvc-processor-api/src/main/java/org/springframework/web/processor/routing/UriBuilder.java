@@ -1,5 +1,6 @@
 package org.springframework.web.processor.routing;
 
+import java.lang.reflect.Array;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -119,11 +120,28 @@ public abstract class UriBuilder<T extends UriBuilder<T>> {
 			Object... values) {
 		if (values != null) {
 			for (Object value : values) {
-				String textValue = RequestMappingConversionUtils.convert(value);
-				map.add(key, textValue);
+				if (value.getClass().isArray()) {
+					// handles arrays of primitives
+					for (int i = 0; i < Array.getLength(value); ++i) {
+						addEntry(map, key, Array.get(value, i));
+					}
+				} else if (value instanceof Collection<?>) {
+					for (Object item : (Collection<?>) value) {
+						addEntry(map, key, item);
+					}
+				} else if (value instanceof Map<?, ?>) {
+					for (Map.Entry<?, ?> entry : ((Map<?, ?>) value).entrySet()) {
+						String textKey = RequestMappingConversionUtils
+								.convert(entry.getKey());
+						addEntry(map, textKey, entry.getValue());
+					}
+				} else {
+					String textValue = RequestMappingConversionUtils
+							.convert(value);
+					map.add(key, textValue);
+				}
 			}
 		}
 		return self();
 	}
-
 }
