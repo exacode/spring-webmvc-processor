@@ -56,6 +56,9 @@ public class MetaControllerMethod {
 	}
 
 	public void addPathVariable(Parameter param) {
+		if (param == null) {
+			return;
+		}
 		if (param.isRequired()) {
 			parameters.add(param);
 			pathVariables.add(param);
@@ -65,6 +68,9 @@ public class MetaControllerMethod {
 	}
 
 	public void addRequestParameter(Parameter param) {
+		if (param == null) {
+			return;
+		}
 		if (param.isRequired()) {
 			parameters.add(param);
 			requestParameters.add(param);
@@ -74,6 +80,9 @@ public class MetaControllerMethod {
 	}
 
 	public void addMatrixVariable(Parameter param) {
+		if (param == null) {
+			return;
+		}
 		if (param.isRequired()) {
 			parameters.add(param);
 			matrixVariables.add(param);

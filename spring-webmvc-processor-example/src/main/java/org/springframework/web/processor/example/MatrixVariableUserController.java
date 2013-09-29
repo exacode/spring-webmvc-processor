@@ -31,7 +31,6 @@ public class MatrixVariableUserController {
 
 	@RequestMapping(value = "/users/{resourceId}/resource")
 	public void getUserResource(
-			@MatrixVariable Map<String, String> matrixVars,
 			@MatrixVariable(pathVar = "resourceId") Map<String, List<String>> resourceMatrixVars) {
 	}
 

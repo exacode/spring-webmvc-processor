@@ -48,19 +48,13 @@ public class MatrixVariableUserControllerTest {
 
 	@Test
 	public void shouldGenerateGetUserResources() {
-		Map<String, String> map = new HashMap<String, String>();
-		map.put("q", "one");
-		map.put("p", "two");
-		Map<String, List<String>> map2 = new HashMap<String, List<String>>();
-		map2.put("a", Arrays.asList("three", "four"));
-		map2.put("b", Arrays.asList("five"));
+		Map<String, List<String>> map = new HashMap<String, List<String>>();
+		map.put("a", Arrays.asList("three", "four"));
+		map.put("b", Arrays.asList("five"));
 
-		Assertions
-				.assertThat(
-						MatrixVariableUserController_
-								.getUserResource(map, map2).mvc())
+		Assertions.assertThat(
+				MatrixVariableUserController_.getUserResource(map).mvc())
 				.isEqualTo(
-						new MvcRouting(
-								"/users/;b=five;a=three,four/resource;q=one;p=two"));
+						new MvcRouting("/users/;b=five;a=three,four/resource"));
 	}
 }

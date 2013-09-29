@@ -129,6 +129,12 @@ class MetaControllerGenerator {
 		String paramName = param.getSimpleName().toString();
 		String value = (pathVariable.value().isEmpty()) ? paramName
 				: pathVariable.value();
+
+		if (pathVariable.value().isEmpty() && aptUtils.isMap(param.asType())) {
+			// Omit: returnType methodName(@RequestParam Map param)
+			return null;
+		}
+
 		Type type = Type.create(aptUtils, param.asType());
 		Parameter metaParam = Parameter.builder(paramName, type)
 				.setBindingName(value).build();
@@ -141,6 +147,12 @@ class MetaControllerGenerator {
 		String paramName = param.getSimpleName().toString();
 		String value = (requestParam.value().isEmpty()) ? paramName
 				: requestParam.value();
+
+		if (requestParam.value().isEmpty() && aptUtils.isMap(param.asType())) {
+			// Omit: returnType methodName(@RequestParam Map param)
+			return null;
+		}
+
 		Type type = Type.create(aptUtils, param.asType());
 		Parameter metaParam = Parameter.builder(paramName, type)
 				.setBindingName(value)
@@ -158,6 +170,13 @@ class MetaControllerGenerator {
 				.pathVar())) ? null : matixVariable.pathVar();
 		String value = (matixVariable.value().isEmpty()) ? paramName.toString()
 				: matixVariable.value();
+
+		if (pathVar == null && matixVariable.value().isEmpty()
+				&& aptUtils.isMap(param.asType())) {
+			// Omit: returnType methodName(@MatrixVariable Map param)
+			return null;
+		}
+
 		Type type = Type.create(aptUtils, param.asType());
 		Parameter metaParam = Parameter.builder(paramName, type)
 				.setBindingName(value).setPathName(pathVar)
