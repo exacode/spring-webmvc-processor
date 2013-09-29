@@ -15,8 +15,8 @@ How to configure?
 -----------------
 
 ### Maven
-First invoke *spring-webmvc-processor* during maven build. In order to do this have a look at an example project: [spring-webmvc-processor-example](https://github.com/mendlik/spring-data-mongodb-processor/blob/master/spring-webmvc-processor-example/pom.xml#L63).
-
+First invoke *spring-webmvc-processor* during maven build. In order to do this have a look at an example project: [spring-webmvc-processor-example](https://github.com/mendlik/spring-webmvc-processor/blob/master/spring-webmvc-processor-example/pom.xml#L63).
+ 
 ### Eclipse IDE
 To ease the usage of annotation processor use Eclipse IDE with m2e eclipse plugin and configure it to invoke annotation processor automatically:
 * Right-click on your project > Properties > Maven > Annotation processing
@@ -70,7 +70,7 @@ This annotation processor handles also parameters of every type ([@RequestParam]
 
 			// metamodel: UserController_.getUsers("user123").query("some-value").mvc().redirect(); 
 			// generates: "redirect:/users/user123?query=some-value"
-			// Note that all optional parameters are chained and optional in meta controller.
+			// Note that all optional parameters are chained therefore also optional in meta controller.
 		
 		}
 
