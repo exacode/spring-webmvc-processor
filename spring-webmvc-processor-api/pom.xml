@@ -3,8 +3,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>spring-webmvc-processor-api</artifactId>
 
-	<name>Spring Data MongoDB - Metamodel processor</name>
-	<description>Spring Data meta model processor for MongoDB documents</description>
+	<name>SpringMvc - API for SpringMvc Controller processor</name>
+	<description>Shared classes between SpringMvc controller processor and other project</description>
 
 	<parent>
 		<groupId>org.springframework.web</groupId>

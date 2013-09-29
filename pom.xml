@@ -6,8 +6,8 @@
 	<packaging>pom</packaging>
 	<version>0.0.2-SNAPSHOT</version>
 
-	<name>Spring Data MongoDB - Metamodel processor parent project</name>
-	<description>Parent project of Spring Data meta model processor for MongoDB documents</description>
+	<name>SpringMvc - Controller processor parent project</name>
+	<description>Parent project of SpringMVC controller processor</description>
 
 	<distributionManagement>
 		<repository>

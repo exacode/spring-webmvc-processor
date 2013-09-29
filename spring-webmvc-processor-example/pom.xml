@@ -3,8 +3,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>spring-webmvc-processor-example</artifactId>
 
-	<name>Spring Data MongoDB - Metamodel processor example project</name>
-	<description>Test for Spring Data meta model processor for MongoDB documents</description>
+	<name>SpringMvc - Controller processor example project</name>
+	<description>Tests and example usage of SpringMvc controller processor</description>
 
 	<parent>
 		<groupId>org.springframework.web</groupId>

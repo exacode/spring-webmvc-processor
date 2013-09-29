@@ -3,8 +3,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>spring-webmvc-processor</artifactId>
 
-	<name>Spring Data MongoDB - Metamodel processor</name>
-	<description>Spring Data meta model processor for MongoDB documents</description>
+	<name>SpringMvc - Controller processor</name>
+	<description>SpringMvc controller processor</description>
 
 	<parent>
 		<groupId>org.springframework.web</groupId>
