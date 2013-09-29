@@ -1,5 +1,5 @@
-Annotation processor for models annotated with `@Controller`
-============================================================
+Annotation processor of SpringMvc Controllers
+=============================================
 
 An annotation processor for [spring-webmvc](http://projects.spring.io/spring-framework/) controllers. 
 
