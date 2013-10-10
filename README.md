@@ -15,7 +15,7 @@ How to configure?
 -----------------
 
 ### Maven
-First invoke *spring-webmvc-processor* during maven build. In order to do this have a look at an example project: [spring-webmvc-processor-example](https://github.com/mendlik/spring-webmvc-processor/blob/master/spring-webmvc-processor-example/pom.xml#L63).
+First invoke *spring-webmvc-processor* during maven build. In order to do this have a look at an example project: [spring-webmvc-processor-example](https://github.com/exacode/spring-webmvc-processor/blob/master/spring-webmvc-processor-example/pom.xml#L63).
  
 ### Eclipse IDE
 To ease the usage of annotation processor use Eclipse IDE with m2e eclipse plugin and configure it to invoke annotation processor automatically:
@@ -75,21 +75,68 @@ This annotation processor handles also parameters of every type ([@RequestParam]
 		}
 
 
-Maven repository
+Maven dependency
 ----------------
 
-In order to use this library add [repository](http://github.com/mendlik/mvn-repo) location in your `pom.xml`:
+In order to use this library add [repository](http://github.com/exacode/mvn-repo) location into your `pom.xml` 
+and add appropriate dependencies and build plugin.
 
-		<repositories>
-		    <repository>
-		        <id>mendlik-releases</id>
-		        <url>https://github.com/mendlik/mvn-repo/raw/master/releases</url>
-		    </repository>
-		</repositories>
+		</dependencies>
+			<dependency>
+				<groupId>net.exacode.spring.web</groupId>
+				<artifactId>spring-webmvc-processor-shared</artifactId>
+				<version>${version.spring-webmvc-processor}</version>
+			</dependency>
+		</dependencies>
 
-Donation
---------
-I hope you found here something useful and/or interesting.
-Help keep this repository growing in more and better projects. 
+		<build>
+			<plugins>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<version>1.7</version>
+					<executions>
+						<execution>
+							<id>add-test-source</id>
+							<phase>generate-test-sources</phase>
+							<goals>
+								<goal>add-test-source</goal>
+							</goals>
+							<configuration>
+								<sources>
+									<source>${project.build.directory}/generated-sources/apt</source>
+								</sources>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin> 
+					<groupId>org.bsc.maven</groupId>
+					<artifactId>maven-processor-plugin</artifactId>
+					<version>2.2.4</version>
+					<executions>
+						<execution>
+							<id>process</id>
+							<goals>
+								<goal>process</goal>
+							</goals>
+							<phase>generate-sources</phase>
+							<configuration>
+								<processors>
+									<processor>net.exacode.spring.web.processor.ControllerProcessor</processor>
+								</processors>
+							</configuration>
+						</execution>
+					</executions>
+					<dependencies>
+						<dependency>
+							<groupId>net.exacode.spring.web</groupId>
+							<artifactId>spring-webmvc-processor</artifactId>
+							<version>${version.spring-webmvc-processor}</version>
+						</dependency>
+					</dependencies>
+				</plugin>
+			</plugins>
+		</build>
 
-<a href='http://www.pledgie.com/campaigns/22261'><img alt='Click here to lend your support to: mendlik-open-repository and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/22261.png?skin_name=chrome' border='0' /></a>
+<a href='http://www.pledgie.com/campaigns/22342'><img alt='Click here to lend your support to: Exacode open projects and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/22342.png?skin_name=chrome' border='0' /></a>

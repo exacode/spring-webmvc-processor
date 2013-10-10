@@ -1,9 +1,9 @@
 <#if (!controller.type.defaultPackage)>package ${controller.type.packageName};</#if>
 
 <#if controller.hasOptionalParameterMappings()>
-import org.springframework.web.processor.routing.UriBuilder;
+import net.exacode.spring.web.processor.shared.routing.UriBuilder;
 </#if>
-import org.springframework.web.processor.routing.UriBuilder.SimpleUriBuilder;
+import net.exacode.spring.web.processor.shared.routing.UriBuilder.SimpleUriBuilder;
 
 public class ${controller.type.className} {
 	

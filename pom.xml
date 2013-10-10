@@ -1,29 +1,29 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.springframework.web</groupId>
+	<groupId>net.exacode.spring.web</groupId>
 	<artifactId>spring-webmvc-processor-parent</artifactId>
 	<packaging>pom</packaging>
-	<version>0.0.3-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 
 	<name>SpringMvc - Controller processor parent project</name>
 	<description>Parent project of SpringMVC controller processor</description>
 
 	<distributionManagement>
 		<repository>
-			<id>mendlik-releases</id>
-			<url>https://github.com/mendlik/mvn-repo/raw/master/releases</url>
+			<id>exacode-releases</id>
+			<url>https://github.com/exacode/mvn-repo/raw/master/releases</url>
 		</repository>
 		<snapshotRepository>
-			<id>mendlik-snapshots</id>
-			<url>https://github.com/mendlik/mvn-repo/raw/master/snapshots</url>
+			<id>exacode-snapshots</id>
+			<url>https://github.com/exacode/mvn-repo/raw/master/snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
 
 	<scm>
-		<connection>scm:git:git@github.com:mendlik/spring-webmvc-processor.git</connection>
-		<developerConnection>scm:git:git@github.com:mendlik/spring-webmvc-processor.git</developerConnection>
-		<url>http://github.com/mendlik/spring-webmvc-processor</url>
+		<connection>scm:git:git@github.com:exacode/spring-webmvc-processor.git</connection>
+		<developerConnection>scm:git:git@github.com:exacode/spring-webmvc-processor.git</developerConnection>
+		<url>http://github.com/exacode/spring-webmvc-processor</url>
 	</scm>
 
 	<properties>
@@ -41,7 +41,7 @@
 
 	<modules>
 		<module>spring-webmvc-processor</module>
-		<module>spring-webmvc-processor-api</module>
+		<module>spring-webmvc-processor-shared</module>
 		<module>spring-webmvc-processor-example</module>
 	</modules>
 
