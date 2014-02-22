@@ -1,5 +1,13 @@
 package net.exacode.spring.web.processor.shared.routing;
 
+/**
+ * Represents SpringMVC routing.
+ * <p>
+ * Builds SpringMVC routing values like forwards and redirects.
+ * 
+ * @author mendlik
+ * 
+ */
 public class MvcRouting {
 
 	public static final String FORWARD_MVC_PREFIX = "forward:";
@@ -10,10 +18,18 @@ public class MvcRouting {
 		this.uri = uri;
 	}
 
+	/**
+	 * 
+	 * @return Redirect to URI. Example: {@code "redirect:/uri" }
+	 */
 	public String redirect() {
 		return REDIRECT_MVC_PREFIX + uri;
 	}
 
+	/**
+	 * 
+	 * @return Forward to URI. Example: {@code "forward:/uri" }
+	 */
 	public String forward() {
 		return FORWARD_MVC_PREFIX + uri;
 	}

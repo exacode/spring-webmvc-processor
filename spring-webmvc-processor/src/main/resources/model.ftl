@@ -4,16 +4,35 @@
 import net.exacode.spring.web.processor.shared.routing.UriBuilder;
 </#if>
 import net.exacode.spring.web.processor.shared.routing.UriBuilder.SimpleUriBuilder;
+<#assign author="spring-webmvc-processor" />
 
+/**
+ * Spring WebMvc meta model of {@link ${controller.qualifiedControllerName}}.
+ * 
+ * @author ${author}
+ */
 public class ${controller.type.className} {
 	
 	<#list controller.methods as method>
 	<#if method.hasNoParameters()>
+	/**
+	 * Represents request mapping from
+	 * {@link ${controller.qualifiedControllerName}#${method.originalMethodName}}
+	 * 
+	 * @return {@link SimpleUriBuilder} for method's request mapping
+	 */
 	public static SimpleUriBuilder ${method.declaration} {
 		return new SimpleUriBuilder("${method.uri}");
 	}
 	
 	<#elseif method.hasOptionalParameters()>
+	/**
+	 * Represents request mapping from
+	 * {@link ${controller.qualifiedControllerName}#${method.originalMethodName}}
+	 * with optional parameters.
+	 * 
+	 * @return {@link ${method.optionalParametersClassName}}
+	 */
 	public static ${method.optionalParametersClassName} ${method.declaration} {
 		${method.optionalParametersClassName} uriBuilder = new ${method.optionalParametersClassName}("${method.uri}");
 		<#list method.pathVariables as param>
@@ -33,6 +52,12 @@ public class ${controller.type.className} {
 	}
 	
 	<#else>
+	/**
+	 * Represents request mapping from
+	 * {@link ${controller.qualifiedControllerName}#${method.originalMethodName}}.
+	 * 
+	 * @return {@link SimpleUriBuilder} for method's request mapping
+	 */
 	public static SimpleUriBuilder ${method.declaration} {
 		SimpleUriBuilder uriBuilder = new SimpleUriBuilder("${method.uri}");
 		<#list method.pathVariables as param>
@@ -55,6 +80,12 @@ public class ${controller.type.className} {
 	</#list>
 	
 	<#list controller.mappingsOptionalParameters as optParams>
+	/**
+	 * Spring WebMvc meta model of {@link ${controller.qualifiedControllerName}}
+	 * with optional parameters.
+	 * 
+	 * @author ${author}
+	 */
 	public static class ${optParams.className} extends
 			UriBuilder<${optParams.className}> {
 		

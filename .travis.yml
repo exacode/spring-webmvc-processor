@@ -1,0 +1,5 @@
+language: java
+
+notifications:
+  email:
+    - admin@exacode.net

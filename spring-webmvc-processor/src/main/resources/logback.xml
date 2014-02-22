@@ -7,6 +7,5 @@
 		</encoder>
 	</appender>
 
-	<logger name="net.exacode" level="trace" />
-
+	<logger name="net.exacode" level="info" />
 </configuration>

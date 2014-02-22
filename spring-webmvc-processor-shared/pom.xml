@@ -12,13 +12,6 @@
 		<version>1.0.1-SNAPSHOT</version>
 	</parent>
 
-	<properties>
-		<!-- Dependency versions -->
-		<version.freemarker>2.3.19</version.freemarker>
-		<version.log4j-over-slf4j>1.7.5</version.log4j-over-slf4j>
-		<version.logback>1.0.11</version.logback>
-	</properties>
-
 	<dependencies>
 		<!-- Test dependencies -->
 		<dependency>

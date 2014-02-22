@@ -8,6 +8,8 @@ public class MetaControllerMethod {
 
 	private String methodName;
 
+	private String originalMethodName;
+
 	private String uri;
 
 	private OptionalParameters optionalParametersType;
@@ -23,10 +25,11 @@ public class MetaControllerMethod {
 	public MetaControllerMethod() {
 	}
 
-	public MetaControllerMethod(String methodName, String uri) {
+	public MetaControllerMethod(String originalMethodName, String uri) {
 		super();
 		this.uri = uri;
-		this.methodName = methodName;
+		this.originalMethodName = originalMethodName;
+		this.methodName = originalMethodName;
 		this.optionalParametersType = new OptionalParameters(
 				upperCaseFirstLetter(methodName));
 	}
@@ -149,6 +152,10 @@ public class MetaControllerMethod {
 
 	public OptionalParameters getOptionalParameters() {
 		return optionalParametersType;
+	}
+
+	public String getOriginalMethodName() {
+		return originalMethodName;
 	}
 
 	@Override
