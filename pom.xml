@@ -4,7 +4,7 @@
 	<groupId>net.exacode.spring.web</groupId>
 	<artifactId>spring-webmvc-processor-parent</artifactId>
 	<packaging>pom</packaging>
-	<version>1.0.2-SNAPSHOT</version>
+	<version>1.0.2</version>
 
 	<name>SpringMvc - Controller processor parent project</name>
 	<description>Parent project of SpringMVC controller processor</description>
