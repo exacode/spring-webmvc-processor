@@ -13,11 +13,7 @@ import javax.lang.model.type.TypeMirror;
 
 import net.exacode.spring.web.processor.AptUtils;
 
-import org.slf4j.LoggerFactory;
-
 public class Type {
-	private static final org.slf4j.Logger logger = LoggerFactory
-			.getLogger(Type.class);
 
 	public static Map<String, Type> types = new HashMap<String, Type>();
 
@@ -32,7 +28,6 @@ public class Type {
 
 	public static Type create(AptUtils aptUtils, TypeMirror typeMirror) {
 		if (TypeKind.DECLARED.equals(typeMirror.getKind())) {
-			logger.info("Type: {}", typeMirror);
 			DeclaredType declaredType = (DeclaredType) typeMirror;
 			List<String> generics = new ArrayList<String>();
 			for (TypeMirror genericType : declaredType.getTypeArguments()) {

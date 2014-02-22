@@ -14,7 +14,7 @@
 
 	<properties>
 		<!-- Dependency versions -->
-		<version.freemarker>2.3.19</version.freemarker>
+		<version.freemarker>2.3.20</version.freemarker>
 	</properties>
 
 	<dependencies>
@@ -35,18 +35,6 @@
 			<groupId>org.freemarker</groupId>
 			<artifactId>freemarker</artifactId>
 			<version>${version.freemarker}</version>
-		</dependency>
-
-		<!-- Log4j is required by freemarker (see: freemarker.log.Log4JLoggerFactory) -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>log4j-over-slf4j</artifactId>
-			<version>${version.log4j-over-slf4j}</version>
-		</dependency>
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>${version.logback}</version>
 		</dependency>
 	</dependencies>
 
