@@ -1,4 +1,4 @@
-Annotation processor of SpringWebMvc Controllers
+Annotation processor for SpringWebMvc Controllers
 ================================================
 
 [![Flattr this!](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=exacode&url=https://github.com/exacode/spring-webmvc-processor&tags=spring,spring-webmvc,preprocessor,java,code,github&category=software) 
