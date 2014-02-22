@@ -141,5 +141,3 @@ and add appropriate dependencies and build plugin.
 				</plugin>
 			</plugins>
 		</build>
-
-<a href='http://www.pledgie.com/campaigns/22342'><img alt='Click here to lend your support to: Exacode open projects and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/22342.png?skin_name=chrome' border='0' /></a>
