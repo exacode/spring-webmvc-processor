@@ -3,6 +3,8 @@ package net.exacode.spring.web.processor;
 import javax.annotation.processing.ProcessingEnvironment;
 import javax.tools.Diagnostic;
 
+import freemarker.log.Logger;
+
 /**
  * Simple apt logger implementation.
  * <p/>
@@ -21,6 +23,12 @@ public class AptLogger {
 	 * @return logger mock
 	 */
 	public static AptLogger nullLogger() {
+		try {
+			// Turn off freemarker logs
+			Logger.selectLoggerLibrary(Logger.LIBRARY_NONE);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 		return new AptLogger();
 	}
 
