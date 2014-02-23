@@ -30,7 +30,7 @@ public class MetaCotrollerWriter {
 
 	private final Configuration templateConfiguration;
 
-	private static final String META_MODEL_TEMPLATE = "model.ftl";
+	private static final String META_MODEL_TEMPLATE = "SpringWebMvcMetaModel.ftl";
 
 	public MetaCotrollerWriter(ProcessingEnvironment processingEnv) {
 		this.processingEnv = processingEnv;
