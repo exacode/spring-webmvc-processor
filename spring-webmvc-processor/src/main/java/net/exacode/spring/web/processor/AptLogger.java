@@ -14,7 +14,24 @@ import javax.tools.Diagnostic;
 public class AptLogger {
 	private final ProcessingEnvironment processingEnv;
 
+	/**
+	 * At the moment all kind of logs are printed as warnings by maven compiler
+	 * and it's not desired.
+	 * 
+	 * @return logger mock
+	 */
+	public static AptLogger nullLogger() {
+		return new AptLogger();
+	}
+
+	private AptLogger() {
+		this.processingEnv = null;
+	}
+
 	public AptLogger(ProcessingEnvironment processingEnv) {
+		if (processingEnv == null) {
+			throw new NullPointerException();
+		}
 		this.processingEnv = processingEnv;
 	}
 
@@ -60,7 +77,9 @@ public class AptLogger {
 	 *            - to be logged
 	 */
 	public void log(Diagnostic.Kind level, String msg) {
-		processingEnv.getMessager().printMessage(level, msg);
+		if (processingEnv != null) {
+			processingEnv.getMessager().printMessage(level, msg);
+		}
 	}
 
 }
