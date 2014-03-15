@@ -1,11 +1,12 @@
 package net.exacode.spring.web.processor.example.path;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import net.exacode.spring.web.processor.example.BaseSpringTest;
 import net.exacode.spring.web.processor.shared.routing.MvcRouting;
 
 import org.junit.Test;
 
-public class PathVariableUserControllerTest {
+public class PathVariableUserControllerTest extends BaseSpringTest {
 	private static final int USER_ID = 1;
 
 	@Test

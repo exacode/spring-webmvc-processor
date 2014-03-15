@@ -1,11 +1,12 @@
 package net.exacode.spring.web.processor.example.request;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import net.exacode.spring.web.processor.example.BaseSpringTest;
 import net.exacode.spring.web.processor.shared.routing.MvcRouting;
 
 import org.junit.Test;
 
-public class RequestOptionalParameterUserControllerTest {
+public class RequestOptionalParameterUserControllerTest extends BaseSpringTest {
 	public static final int[] USER_IDS = { 1, 2, 3 };
 
 	@Test

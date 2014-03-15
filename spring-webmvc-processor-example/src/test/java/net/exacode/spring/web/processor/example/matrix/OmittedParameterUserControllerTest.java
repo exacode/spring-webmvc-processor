@@ -1,11 +1,12 @@
 package net.exacode.spring.web.processor.example.matrix;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import net.exacode.spring.web.processor.example.BaseSpringTest;
 import net.exacode.spring.web.processor.shared.routing.MvcRouting;
 
 import org.junit.Test;
 
-public class OmittedParameterUserControllerTest {
+public class OmittedParameterUserControllerTest extends BaseSpringTest {
 	@Test
 	public void shouldGenerateNoParameterMappingForMatrixMap() {
 		assertThat(

@@ -5,7 +5,8 @@ import net.exacode.spring.web.processor.shared.routing.UriBuilder.SimpleUriBuild
 
 import org.junit.Test;
 
-public class SimpleParameterBuilder_RequestParametersTest {
+public class SimpleParameterBuilder_RequestParametersTest extends
+		BaseSpringTest {
 
 	@Test
 	public void shouldBuildRoutingWithQueryParameters() {

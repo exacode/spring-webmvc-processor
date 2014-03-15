@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
-public class SandboxTest {
+public class SandboxTest extends BaseSpringTest {
 
 	Logger logger = LoggerFactory.getLogger(getClass());
 

@@ -5,7 +5,7 @@ import net.exacode.spring.web.processor.shared.routing.MvcRouting;
 
 import org.junit.Test;
 
-public class MixedUserControllerTest {
+public class MixedUserControllerTest extends BaseSpringTest {
 
 	public static final int[] USER_IDS = { 1, 2, 3 };
 

@@ -5,7 +5,7 @@ import net.exacode.spring.web.processor.shared.routing.UriBuilder.SimpleUriBuild
 
 import org.junit.Test;
 
-public class SimpleParameterBuilder_PathVariablesTest {
+public class SimpleParameterBuilder_PathVariablesTest extends BaseSpringTest {
 
 	@Test
 	public void shouldBuildRoutingWithPathVariables() {

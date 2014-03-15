@@ -7,11 +7,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import net.exacode.spring.web.processor.example.BaseSpringTest;
 import net.exacode.spring.web.processor.shared.routing.MvcRouting;
 
 import org.junit.Test;
 
-public class MatrixVariableUserControllerTest {
+public class MatrixVariableUserControllerTest extends BaseSpringTest {
 	public static final Integer[] USER_IDS = { 1, 2, 3 };
 
 	@Test

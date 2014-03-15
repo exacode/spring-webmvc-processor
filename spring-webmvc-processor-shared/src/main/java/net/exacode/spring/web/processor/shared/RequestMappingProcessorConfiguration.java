@@ -1,11 +1,16 @@
 package net.exacode.spring.web.processor.shared;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.core.convert.ConversionService;
 
 public class RequestMappingProcessorConfiguration implements
 		ApplicationListener<ContextRefreshedEvent> {
+
+	private final static Logger LOG = LoggerFactory
+			.getLogger(RequestMappingProcessorConfiguration.class);
 
 	private static RequestMappingProcessorConfiguration instance;
 
@@ -37,10 +42,12 @@ public class RequestMappingProcessorConfiguration implements
 
 	public static RequestMappingProcessorConfiguration init(String serverUrl,
 			String servletPath) {
-		if (instance == null) {
-			instance = new RequestMappingProcessorConfiguration(serverUrl,
-					servletPath);
+		if (instance != null) {
+			LOG.warn("Reinitializing SpringMVC processor {}",
+					RequestMappingProcessorConfiguration.class.getName());
 		}
+		instance = new RequestMappingProcessorConfiguration(serverUrl,
+				servletPath);
 		return instance;
 	}
 
