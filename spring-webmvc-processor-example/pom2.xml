@@ -18,7 +18,7 @@
 	</properties>
 
 	<dependencies>
-		<!-- Test dependencies --> 
+<!-- Test dependencies -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -26,9 +26,9 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.easytesting</groupId>
-			<artifactId>fest-assert-core</artifactId>
-			<version>${version.fest-assert-core}</version>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>${version.assertj}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -37,7 +37,7 @@
 			<version>${version.spring}</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<!-- Logging dependencies -->
 		<dependency>
 			<groupId>ch.qos.logback</groupId>

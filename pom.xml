@@ -34,11 +34,11 @@
 		<!-- Dependency versions --> 
 		<version.spring>4.0.1.RELEASE</version.spring>
 		<version.logback>1.1.1</version.logback>
-		<version.log4j-over-slf4j>1.7.6</version.log4j-over-slf4j>
+		<version.slf4j>1.7.6</version.slf4j>
 		
 		<!-- Test dependency versions -->
 		<version.junit>4.11</version.junit>
-		<version.fest-assert-core>2.0M10</version.fest-assert-core>
+		<version.assertj>1.5.0</version.assertj>
 	</properties>
 
 	<modules>

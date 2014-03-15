@@ -1,8 +1,8 @@
-package net.exacode.spring.web.processor.example;
+package net.exacode.spring.web.processor.example.request;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import net.exacode.spring.web.processor.shared.routing.MvcRouting;
 
-import org.fest.assertions.api.Assertions;
 import org.junit.Test;
 
 public class RequestParameterUserControllerTest {
@@ -10,21 +10,20 @@ public class RequestParameterUserControllerTest {
 
 	@Test
 	public void shouldGenerateGetUsers() {
-		Assertions.assertThat(RequestParameterUserController_.getUsers().mvc())
-				.isEqualTo(new MvcRouting("/users"));
+		assertThat(RequestParameterUserController_.getUsers().mvc()).isEqualTo(
+				new MvcRouting("/users"));
 	}
 
 	@Test
 	public void shouldGenerateGetUserById() {
-		Assertions.assertThat(
+		assertThat(
 				RequestParameterUserController_.getUserById(USER_IDS[0]).mvc())
 				.isEqualTo(new MvcRouting("/users?id=" + USER_IDS[0]));
 	}
 
 	@Test
 	public void shouldGenerateGetUserByIds() {
-		Assertions.assertThat(
-				RequestParameterUserController_.getUserByIds(USER_IDS).mvc())
+		assertThat(RequestParameterUserController_.getUserByIds(USER_IDS).mvc())
 				.isEqualTo(
 						new MvcRouting("/users?id=" + USER_IDS[0] + "&id="
 								+ USER_IDS[1] + "&id=" + USER_IDS[2]));
@@ -34,7 +33,7 @@ public class RequestParameterUserControllerTest {
 	public void shouldGenerateGetUsersWithQuery() {
 		String query = "abc";
 
-		Assertions.assertThat(
+		assertThat(
 				RequestParameterUserController_.getUsersWithQuery(query).mvc())
 				.isEqualTo(new MvcRouting("/users?query=" + query));
 	}
@@ -43,7 +42,7 @@ public class RequestParameterUserControllerTest {
 	public void shouldGenerateGetUsersWithQueryNoValue() {
 		String query = "abc";
 
-		Assertions.assertThat(
+		assertThat(
 				RequestParameterUserController_.getUsersWithQueryNoValue(query)
 						.mvc()).isEqualTo(
 				new MvcRouting("/users?query=" + query));
@@ -54,7 +53,7 @@ public class RequestParameterUserControllerTest {
 		String prop1 = "abc";
 		String prop2 = "def";
 
-		Assertions.assertThat(
+		assertThat(
 				RequestParameterUserController_.getUsersWithSomeProperties(
 						prop1, prop2).mvc()).isEqualTo(
 				new MvcRouting("/users?prop1=" + prop1 + "&prop2=" + prop2));

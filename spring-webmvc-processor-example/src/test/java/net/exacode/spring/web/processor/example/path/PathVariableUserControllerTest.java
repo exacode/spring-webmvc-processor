@@ -1,8 +1,8 @@
-package net.exacode.spring.web.processor.example;
+package net.exacode.spring.web.processor.example.path;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import net.exacode.spring.web.processor.shared.routing.MvcRouting;
 
-import org.fest.assertions.api.Assertions;
 import org.junit.Test;
 
 public class PathVariableUserControllerTest {
@@ -10,15 +10,13 @@ public class PathVariableUserControllerTest {
 
 	@Test
 	public void shouldGenerateGetUser() {
-		Assertions.assertThat(
-				PathVariableUserController_.getUser(USER_ID).mvc()).isEqualTo(
-				new MvcRouting("/users/" + USER_ID));
+		assertThat(PathVariableUserController_.getUser(USER_ID).mvc())
+				.isEqualTo(new MvcRouting("/users/" + USER_ID));
 	}
 
 	@Test
 	public void shouldGenerateGetUserAccount() {
-		Assertions.assertThat(
-				PathVariableUserController_.getUserAccount(USER_ID).mvc())
+		assertThat(PathVariableUserController_.getUserAccount(USER_ID).mvc())
 				.isEqualTo(new MvcRouting("/users/" + USER_ID + "/account"));
 	}
 }

@@ -46,18 +46,24 @@ class MetaControllerGenerator {
 		if (!isControllerValid(typeElement)) {
 			return null;
 		}
-		String qualifiedMetaControllerName = aptUtils.getElementUtils()
-				.getBinaryName(typeElement).toString();
-		qualifiedMetaControllerName = qualifiedMetaControllerName.replaceAll(
-				"\\$", "_").concat("_");
+		String qualifiedMetaControllerName = getQuelifiedMetaControllerName(typeElement);
 		String qualifiedControllerName = typeElement.getQualifiedName()
 				.toString();
+		String controllerPath = typeElement.getAnnotation(Controller.class)
+				.value();
 
 		MetaController mappedController = new MetaController(
-				qualifiedMetaControllerName, qualifiedControllerName);
+				qualifiedMetaControllerName, qualifiedControllerName,
+				controllerPath);
 		analyzeController(typeElement, mappedController);
 
 		return mappedController;
+	}
+
+	private String getQuelifiedMetaControllerName(TypeElement typeElement) {
+		String qualifiedMetaControllerName = aptUtils.getElementUtils()
+				.getBinaryName(typeElement).toString();
+		return qualifiedMetaControllerName.replaceAll("\\$", "_").concat("_");
 	}
 
 	private void analyzeController(TypeElement typeElement,

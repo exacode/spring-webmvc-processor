@@ -15,19 +15,23 @@ public class RequestMappingProcessorConfiguration implements
 
 	private static String SERVLET_PATH = "";
 
-	public static String getAbsoluteServletUrl() {
-		return SERVER_URL + SERVLET_PATH;
+	public static String getServletUrl() {
+		ensureInitialized();
+		return SERVER_URL + getServletPath();
 	}
 
-	public static String getServletUrl() {
-		return SERVER_URL + SERVLET_PATH;
+	public static String getServerUrl() {
+		ensureInitialized();
+		return SERVER_URL;
 	}
 
 	public static String getServletPath() {
+		ensureInitialized();
 		return SERVLET_PATH;
 	}
 
 	public static ConversionService getConversionService() {
+		ensureInitialized();
 		return CONVERSION_SERVICE;
 	}
 
@@ -38,6 +42,15 @@ public class RequestMappingProcessorConfiguration implements
 					servletPath);
 		}
 		return instance;
+	}
+
+	private static void ensureInitialized() {
+		if (instance == null) {
+			throw new IllegalStateException(
+					"Before using SpringMVC annotation processor, please initialize: "
+							+ RequestMappingProcessorConfiguration.class
+									.getName());
+		}
 	}
 
 	private RequestMappingProcessorConfiguration(String serverUrl,

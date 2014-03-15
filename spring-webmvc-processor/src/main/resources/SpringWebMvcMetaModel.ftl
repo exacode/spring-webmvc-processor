@@ -22,7 +22,7 @@ public class ${controller.type.className} {
 	 * @return {@link SimpleUriBuilder} for method's request mapping
 	 */
 	public static SimpleUriBuilder ${method.declaration} {
-		return new SimpleUriBuilder("${method.uri}");
+		return new SimpleUriBuilder("${controller.prefix}${method.uri}");
 	}
 	
 	<#elseif method.hasOptionalParameters()>
@@ -34,7 +34,7 @@ public class ${controller.type.className} {
 	 * @return {@link ${method.optionalParametersClassName}}
 	 */
 	public static ${method.optionalParametersClassName} ${method.declaration} {
-		${method.optionalParametersClassName} uriBuilder = new ${method.optionalParametersClassName}("${method.uri}");
+		${method.optionalParametersClassName} uriBuilder = new ${method.optionalParametersClassName}("${controller.prefix}${method.uri}");
 		<#list method.pathVariables as param>
 		uriBuilder.addPathVariable("${param.bindingName}", ${param.methodParameterName});
 		</#list>
@@ -59,7 +59,7 @@ public class ${controller.type.className} {
 	 * @return {@link SimpleUriBuilder} for method's request mapping
 	 */
 	public static SimpleUriBuilder ${method.declaration} {
-		SimpleUriBuilder uriBuilder = new SimpleUriBuilder("${method.uri}");
+		SimpleUriBuilder uriBuilder = new SimpleUriBuilder("${controller.prefix}${method.uri}");
 		<#list method.pathVariables as param>
 		uriBuilder.addPathVariable("${param.bindingName}", ${param.methodParameterName});
 		</#list>

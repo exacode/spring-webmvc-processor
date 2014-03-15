@@ -1,9 +1,9 @@
 package net.exacode.spring.web.processor.shared.routing;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import net.exacode.spring.web.processor.shared.RequestMappingProcessorConfiguration;
 import net.exacode.spring.web.processor.shared.routing.UriBuilder.SimpleUriBuilder;
 
-import org.fest.assertions.api.Assertions;
 import org.junit.Test;
 
 public class SimpleParameterBuilderTest {
@@ -17,10 +17,8 @@ public class SimpleParameterBuilderTest {
 		SimpleUriBuilder builder = new SimpleUriBuilder(uri);
 
 		// then
-		Assertions.assertThat(builder.mvc().forward()).isEqualTo(
-				"forward:" + uri);
-		Assertions.assertThat(builder.mvc().redirect()).isEqualTo(
-				"redirect:" + uri);
+		assertThat(builder.mvc().forward()).isEqualTo("forward:" + uri);
+		assertThat(builder.mvc().redirect()).isEqualTo("redirect:" + uri);
 	}
 
 	@Test
@@ -35,12 +33,9 @@ public class SimpleParameterBuilderTest {
 		SimpleUriBuilder builder = new SimpleUriBuilder(uri);
 
 		// then
-		Assertions.assertThat(builder.url().absolute()).isEqualTo(
-				server + servlet + uri);
-		Assertions.assertThat(builder.url().relative().server()).isEqualTo(
-				servlet + uri);
-		Assertions.assertThat(builder.url().relative().servlet())
-				.isEqualTo(uri);
+		assertThat(builder.url().absolute()).isEqualTo(server + servlet + uri);
+		assertThat(builder.url().relative().server()).isEqualTo(servlet + uri);
+		assertThat(builder.url().relative().servlet()).isEqualTo(uri);
 	}
 
 }

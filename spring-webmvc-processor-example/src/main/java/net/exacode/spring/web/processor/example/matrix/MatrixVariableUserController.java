@@ -1,4 +1,4 @@
-package net.exacode.spring.web.processor.example;
+package net.exacode.spring.web.processor.example.matrix;
 
 import java.util.List;
 import java.util.Map;

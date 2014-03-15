@@ -1,4 +1,4 @@
-package net.exacode.spring.web.processor.example;
+package net.exacode.spring.web.processor.example.conversion;
 
 import java.awt.Color;
 

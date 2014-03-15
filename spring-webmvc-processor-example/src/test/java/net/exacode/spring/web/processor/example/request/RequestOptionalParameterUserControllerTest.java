@@ -1,8 +1,8 @@
-package net.exacode.spring.web.processor.example;
+package net.exacode.spring.web.processor.example.request;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import net.exacode.spring.web.processor.shared.routing.MvcRouting;
 
-import org.fest.assertions.api.Assertions;
 import org.junit.Test;
 
 public class RequestOptionalParameterUserControllerTest {
@@ -10,10 +10,9 @@ public class RequestOptionalParameterUserControllerTest {
 
 	@Test
 	public void shouldGenerateGetUserById() {
-		Assertions.assertThat(
-				RequestOptionalParameterUserController_.getUserById().mvc())
+		assertThat(RequestOptionalParameterUserController_.getUserById().mvc())
 				.isEqualTo(new MvcRouting("/users"));
-		Assertions.assertThat(
+		assertThat(
 				RequestOptionalParameterUserController_.getUserById()
 						.id(USER_IDS[0]).mvc()).isEqualTo(
 				new MvcRouting("/users?id=" + USER_IDS[0]));
@@ -21,10 +20,9 @@ public class RequestOptionalParameterUserControllerTest {
 
 	@Test
 	public void shouldGenerateGetUserByIds() {
-		Assertions.assertThat(
-				RequestOptionalParameterUserController_.getUserByIds().mvc())
+		assertThat(RequestOptionalParameterUserController_.getUserByIds().mvc())
 				.isEqualTo(new MvcRouting("/users"));
-		Assertions.assertThat(
+		assertThat(
 				RequestOptionalParameterUserController_.getUserByIds()
 						.ids(USER_IDS).mvc()).isEqualTo(
 				new MvcRouting("/users?id=" + USER_IDS[0] + "&id="
@@ -35,10 +33,10 @@ public class RequestOptionalParameterUserControllerTest {
 	public void shouldGenerateGetUsersWithQuery() {
 		String query = "abc";
 
-		Assertions.assertThat(
+		assertThat(
 				RequestOptionalParameterUserController_.getUsersWithQuery()
 						.mvc()).isEqualTo(new MvcRouting("/users"));
-		Assertions.assertThat(
+		assertThat(
 				RequestOptionalParameterUserController_.getUsersWithQuery()
 						.query(query).mvc()).isEqualTo(
 				new MvcRouting("/users?query=" + query));
@@ -48,11 +46,11 @@ public class RequestOptionalParameterUserControllerTest {
 	public void shouldGenerateGetUsersWithQueryNoValue() {
 		String query = "abc";
 
-		Assertions.assertThat(
+		assertThat(
 				RequestOptionalParameterUserController_
 						.getUsersWithQueryNoValue().mvc()).isEqualTo(
 				new MvcRouting("/users"));
-		Assertions.assertThat(
+		assertThat(
 				RequestOptionalParameterUserController_
 						.getUsersWithQueryNoValue().query(query).mvc())
 				.isEqualTo(new MvcRouting("/users?query=" + query));
@@ -63,19 +61,19 @@ public class RequestOptionalParameterUserControllerTest {
 		String prop1 = "abc";
 		String prop2 = "def";
 
-		Assertions.assertThat(
+		assertThat(
 				RequestOptionalParameterUserController_
 						.getUsersWithSomeProperties().mvc()).isEqualTo(
 				new MvcRouting("/users"));
-		Assertions.assertThat(
+		assertThat(
 				RequestOptionalParameterUserController_
 						.getUsersWithSomeProperties().prop1(prop1).mvc())
 				.isEqualTo(new MvcRouting("/users?prop1=" + prop1));
-		Assertions.assertThat(
+		assertThat(
 				RequestOptionalParameterUserController_
 						.getUsersWithSomeProperties().prop2(prop2).mvc())
 				.isEqualTo(new MvcRouting("/users?prop2=" + prop2));
-		Assertions.assertThat(
+		assertThat(
 				RequestOptionalParameterUserController_
 						.getUsersWithSomeProperties().prop1(prop1).prop2(prop2)
 						.mvc()).isEqualTo(
@@ -87,11 +85,11 @@ public class RequestOptionalParameterUserControllerTest {
 		String prop1 = "abc";
 		String prop2 = "def";
 
-		Assertions.assertThat(
+		assertThat(
 				RequestOptionalParameterUserController_
 						.getUsersWithSomeRequiredProperties(prop1).mvc())
 				.isEqualTo(new MvcRouting("/users?prop1=" + prop1));
-		Assertions.assertThat(
+		assertThat(
 				RequestOptionalParameterUserController_
 						.getUsersWithSomeRequiredProperties(prop1).prop2(prop2)
 						.mvc()).isEqualTo(

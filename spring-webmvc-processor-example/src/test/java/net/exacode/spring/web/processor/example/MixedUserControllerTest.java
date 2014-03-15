@@ -1,8 +1,8 @@
 package net.exacode.spring.web.processor.example;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import net.exacode.spring.web.processor.shared.routing.MvcRouting;
 
-import org.fest.assertions.api.Assertions;
 import org.junit.Test;
 
 public class MixedUserControllerTest {
@@ -14,7 +14,7 @@ public class MixedUserControllerTest {
 		String resource = "image";
 		String query = "some-query";
 
-		Assertions.assertThat(
+		assertThat(
 				MixedUserController_.getUsers(resource, query, USER_IDS).mvc())
 				.isEqualTo(
 						new MvcRouting("/users/" + resource + ";q="

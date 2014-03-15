@@ -1,21 +1,21 @@
-package net.exacode.spring.web.processor.example;
+package net.exacode.spring.web.processor.example.matrix;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import net.exacode.spring.web.processor.shared.routing.MvcRouting;
 
-import org.fest.assertions.api.Assertions;
 import org.junit.Test;
 
 public class OmittedParameterUserControllerTest {
 	@Test
 	public void shouldGenerateNoParameterMappingForMatrixMap() {
-		Assertions.assertThat(
+		assertThat(
 				OmittedParameterUserController_.getUsersWithMatrixVariables()
 						.mvc()).isEqualTo(new MvcRouting("/users"));
 	}
 
 	@Test
 	public void shouldGenerateNoParameterMappingForPathVariablesMap() {
-		Assertions.assertThat(
+		assertThat(
 				OmittedParameterUserController_.getUsersWithPathVariables()
 						.addPathVariable("var1", "varVal1")
 						.addPathVariable("var2", "varVal2").mvc()).isEqualTo(
@@ -24,7 +24,7 @@ public class OmittedParameterUserControllerTest {
 
 	@Test
 	public void shouldGenerateNoParameterMappingForRequestParamsMap() {
-		Assertions.assertThat(
+		assertThat(
 				OmittedParameterUserController_.getUsersWithRequestParams()
 						.mvc()).isEqualTo(new MvcRouting("/users"));
 	}

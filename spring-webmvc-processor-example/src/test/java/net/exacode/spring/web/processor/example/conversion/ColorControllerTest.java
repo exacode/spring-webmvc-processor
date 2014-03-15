@@ -1,15 +1,17 @@
-package net.exacode.spring.web.processor.example;
+package net.exacode.spring.web.processor.example.conversion;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.awt.Color;
 import java.util.HashSet;
 import java.util.Set;
 
-import net.exacode.spring.web.processor.example.ColorControllerTest.ColorConversionConfiguration;
+import net.exacode.spring.web.processor.example.TestConfiguration;
+import net.exacode.spring.web.processor.example.conversion.ColorControllerTest.ColorConversionConfiguration;
 import net.exacode.spring.web.processor.example.util.ColorToStringConverter;
 import net.exacode.spring.web.processor.example.util.StringToColorConverter;
 import net.exacode.spring.web.processor.shared.routing.MvcRouting;
 
-import org.fest.assertions.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.context.annotation.Bean;
@@ -45,8 +47,8 @@ public class ColorControllerTest {
 	public void shouldConvertColorToRgbFormat() {
 		Color color = Color.ORANGE;
 
-		Assertions.assertThat(ColorController_.getImage(color).mvc())
-				.isEqualTo(new MvcRouting("/image?color=rgb(255,200,0)"));
+		assertThat(ColorController_.getImage(color).mvc()).isEqualTo(
+				new MvcRouting("/image?color=rgb(255,200,0)"));
 	}
 
 }

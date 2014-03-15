@@ -80,8 +80,7 @@ public class UrlRouting {
 	 * @return absolute path to the resource/page
 	 */
 	public String absolute() {
-		return RequestMappingProcessorConfiguration.getAbsoluteServletUrl()
-				+ uri;
+		return RequestMappingProcessorConfiguration.getServletUrl() + uri;
 	}
 
 	/**

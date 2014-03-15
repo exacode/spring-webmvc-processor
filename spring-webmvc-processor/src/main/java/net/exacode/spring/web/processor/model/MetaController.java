@@ -13,15 +13,22 @@ public class MetaController {
 
 	private final Type type;
 
+	private final String prefix;
+
 	private final Map<String, MetaControllerMethod> methodSignatures = new LinkedHashMap<String, MetaControllerMethod>();
 
 	private final Map<String, MetaControllerMethod> methodOptionalParametersTypeNames = new LinkedHashMap<String, MetaControllerMethod>();
 
 	public MetaController(String qualifiedMetaControllerName,
-			String qualifiedControllerName) {
+			String qualifiedControllerName, String prefix) {
 		super();
+		this.prefix = (prefix == null) ? "" : prefix;
 		this.type = Type.create(qualifiedMetaControllerName);
 		this.qualifiedControllerName = qualifiedControllerName;
+	}
+
+	public String getPrefix() {
+		return prefix;
 	}
 
 	public Type getType() {

@@ -1,4 +1,6 @@
-package net.exacode.spring.web.processor.example;
+package net.exacode.spring.web.processor.example.matrix;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -7,7 +9,6 @@ import java.util.Map;
 
 import net.exacode.spring.web.processor.shared.routing.MvcRouting;
 
-import org.fest.assertions.api.Assertions;
 import org.junit.Test;
 
 public class MatrixVariableUserControllerTest {
@@ -15,14 +16,13 @@ public class MatrixVariableUserControllerTest {
 
 	@Test
 	public void shouldGenerateGetUserById() {
-		Assertions.assertThat(
-				MatrixVariableUserController_.getUserById(USER_IDS[0]).mvc())
+		assertThat(MatrixVariableUserController_.getUserById(USER_IDS[0]).mvc())
 				.isEqualTo(new MvcRouting("/users;id=" + USER_IDS[0]));
 	}
 
 	@Test
 	public void shouldGenerateGetUserByIds() {
-		Assertions.assertThat(
+		assertThat(
 				MatrixVariableUserController_.getUserByIds(
 						Arrays.asList(USER_IDS)).mvc()).isEqualTo(
 				new MvcRouting("/users;id=" + USER_IDS[0] + "," + USER_IDS[1]
@@ -31,7 +31,7 @@ public class MatrixVariableUserControllerTest {
 
 	@Test
 	public void shouldGenerateGetUserAccount() {
-		Assertions.assertThat(
+		assertThat(
 				MatrixVariableUserController_.getUserAccount(USER_IDS[0],
 						USER_IDS[0]).mvc()).isEqualTo(
 				new MvcRouting("/users/" + USER_IDS[0] + ";id=" + USER_IDS[0]
@@ -40,7 +40,7 @@ public class MatrixVariableUserControllerTest {
 
 	@Test
 	public void shouldGenerateGetUserAccounts() {
-		Assertions.assertThat(
+		assertThat(
 				MatrixVariableUserController_.getUserAccounts(USER_IDS[0],
 						Arrays.asList(USER_IDS)).mvc()).isEqualTo(
 				new MvcRouting("/users/" + USER_IDS[0] + ";id=" + USER_IDS[0]
@@ -53,8 +53,7 @@ public class MatrixVariableUserControllerTest {
 		map.put("a", Arrays.asList("three", "four"));
 		map.put("b", Arrays.asList("five"));
 
-		Assertions.assertThat(
-				MatrixVariableUserController_.getUserResource(map).mvc())
+		assertThat(MatrixVariableUserController_.getUserResource(map).mvc())
 				.isEqualTo(
 						new MvcRouting("/users/;b=five;a=three,four/resource"));
 	}

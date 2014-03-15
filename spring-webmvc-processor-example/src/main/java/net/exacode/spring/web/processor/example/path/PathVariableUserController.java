@@ -1,4 +1,4 @@
-package net.exacode.spring.web.processor.example;
+package net.exacode.spring.web.processor.example.path;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;

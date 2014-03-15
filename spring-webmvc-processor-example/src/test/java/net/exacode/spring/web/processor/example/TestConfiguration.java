@@ -11,10 +11,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @ComponentScan(basePackageClasses = TestConfiguration.class)
 public class TestConfiguration extends WebMvcConfigurerAdapter {
 
+	public static String SERVER_URL = "http://localhost:8080";
+
+	public static String SERVLET_PATH = "/myapp";
+
 	@Bean
 	public RequestMappingProcessorConfiguration requestMappingProcessorConfiguration() {
-		return RequestMappingProcessorConfiguration.init(
-				"http://localhost:8080", "/myapp");
+		return RequestMappingProcessorConfiguration.init(SERVER_URL,
+				SERVLET_PATH);
 	}
 
 }

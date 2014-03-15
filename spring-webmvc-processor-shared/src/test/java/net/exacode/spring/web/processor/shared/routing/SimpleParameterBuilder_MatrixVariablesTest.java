@@ -1,8 +1,8 @@
 package net.exacode.spring.web.processor.shared.routing;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import net.exacode.spring.web.processor.shared.routing.UriBuilder.SimpleUriBuilder;
 
-import org.fest.assertions.api.Assertions;
 import org.junit.Test;
 
 public class SimpleParameterBuilder_MatrixVariablesTest {
@@ -17,7 +17,7 @@ public class SimpleParameterBuilder_MatrixVariablesTest {
 		builder.addMatrixVariable("q", 1, 2, 3).addMatrixVariable("p", 3, 4, 5);
 
 		// then
-		Assertions.assertThat(builder.mvc().redirect()).isEqualTo(
+		assertThat(builder.mvc().redirect()).isEqualTo(
 				"redirect:/account/john-doe;q=1,2,3;p=3,4,5");
 	}
 
@@ -34,7 +34,7 @@ public class SimpleParameterBuilder_MatrixVariablesTest {
 				.addMatrixVariable("r", 5, 6, 7);
 
 		// then
-		Assertions.assertThat(builder.mvc().redirect()).isEqualTo(
+		assertThat(builder.mvc().redirect()).isEqualTo(
 				"redirect:/account/john-doe;q=1,2,3;p=3,4,5/profile;r=5,6,7");
 	}
 
@@ -49,7 +49,7 @@ public class SimpleParameterBuilder_MatrixVariablesTest {
 				"r", 5, 6, 7);
 
 		// then
-		Assertions.assertThat(builder.mvc().redirect()).isEqualTo(
+		assertThat(builder.mvc().redirect()).isEqualTo(
 				"redirect:/account/john-doe;r=5,6,7?param=param-value");
 	}
 }
