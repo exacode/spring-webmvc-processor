@@ -10,7 +10,7 @@
 	<parent>
 		<groupId>net.exacode.spring.web</groupId>
 		<artifactId>spring-webmvc-processor-parent</artifactId>
-		<version>1.0.8</version>
+		<version>1.0.8-SNAPSHOT</version>
 	</parent>
 
 	<dependencies>
@@ -44,11 +44,6 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${version.spring}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>${version.slf4j}</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
