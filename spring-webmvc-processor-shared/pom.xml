@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>spring-webmvc-processor-shared</artifactId>
@@ -10,7 +9,7 @@
 	<parent>
 		<groupId>net.exacode.spring.web</groupId>
 		<artifactId>spring-webmvc-processor-parent</artifactId>
-		<version>1.0.8-SNAPSHOT</version>
+		<version>1.0.8</version>
 	</parent>
 
 	<dependencies>
@@ -46,10 +45,9 @@
 			<version>${version.spring}</version>
 		</dependency>
 		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>3.0.1</version>
-			<scope>provided</scope>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${version.slf4j}</version>
 		</dependency>
 	</dependencies>
 
